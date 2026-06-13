@@ -1,0 +1,30 @@
+{
+  "topics": {
+    "parallel_computing": {
+      "keywords": ["gpu", "cuda", "thrust", "cub", "kernel", "thread", "warp", "block", "shared memory", "nvcc", "cudaMalloc", "device", "host", "tpu", "opencl", "simd", "vectorize", "parallelism"],
+      "noise_patterns": ["thank you", "thanks", "got it", "ok", "sure", "great", "hello", "hi", "bye"]
+    },
+    "systems_debugging": {
+      "keywords": ["segfault", "stacktrace", "traceback", "exception", "breakpoint", "gdb", "valgrind", "assert", "null pointer", "memory leak", "undefined behavior", "core dump", "sanitizer", "lldb"],
+      "noise_patterns": ["thank you", "thanks", "got it", "ok", "sure", "great", "hello", "hi", "bye"]
+    },
+    "web_network": {
+      "keywords": ["http", "https", "request", "response", "endpoint", "api", "rest", "graphql", "socket", "payload", "header", "cors", "csrf", "xss", "injection", "sanitize", "oauth", "token", "jwt"],
+      "noise_patterns": ["thank you", "thanks", "got it", "ok", "sure", "great", "hello", "hi", "bye"]
+    },
+    "ml_training": {
+      "keywords": ["loss", "epoch", "gradient", "optimizer", "backprop", "forward pass", "batch", "learning rate", "overfitting", "regularization", "dropout", "activation", "weight", "bias", "inference", "checkpoint", "fine-tune"],
+      "noise_patterns": ["thank you", "thanks", "got it", "ok", "sure", "great", "hello", "hi", "bye"]
+    },
+    "data_engineering": {
+      "keywords": ["pipeline", "etl", "dataframe", "schema", "query", "sql", "join", "index", "partition", "kafka", "spark", "airflow", "ingestion", "transform", "load", "warehouse", "pandas", "numpy"],
+      "noise_patterns": ["thank you", "thanks", "got it", "ok", "sure", "great", "hello", "hi", "bye"]
+    }
+  },
+  "global_noise": [
+    "thank you", "thanks", "got it", "ok", "okay", "sure", "great", "sounds good",
+    "hello", "hi", "hey", "bye", "goodbye", "see you", "i want to learn",
+    "can you help", "please help", "help me", "i need help", "let's start",
+    "let us start", "i understand", "makes sense", "i see", "alright"
+  ]
+}

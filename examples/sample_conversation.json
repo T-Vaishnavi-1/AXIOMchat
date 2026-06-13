@@ -1,0 +1,10 @@
+[
+  {"id": "m1", "parent_id": null,  "role": "user",      "text": "Hi there!"},
+  {"id": "m2", "parent_id": "m1",  "role": "user",      "text": "How do I allocate memory on a CUDA device?"},
+  {"id": "m3", "parent_id": "m2",  "role": "assistant", "text": "Use cudaMalloc to allocate device memory. It works similarly to malloc but allocates on the GPU."},
+  {"id": "m4", "parent_id": "m2",  "role": "user",      "text": "Can I use thrust with CUDA kernels?"},
+  {"id": "m5", "parent_id": "m1",  "role": "user",      "text": "Thanks, got it!"},
+  {"id": "m6", "parent_id": null,  "role": "user",      "text": "I want to learn something today"},
+  {"id": "m7", "parent_id": "m3",  "role": "user",      "text": "What about cudaFree? When should I call it?"},
+  {"id": "m8", "parent_id": "m3",  "role": "user",      "text": "Does this work on TPUs too?"}
+]
