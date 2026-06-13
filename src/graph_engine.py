@@ -44,7 +44,6 @@ class LLMScorer:
     """
     V1 scorer: calls Anthropic API to rate relevance of a node
     relative to a session summary.
-    Swap this class out in V2 for an embedding-based scorer.
     """
     def __init__(self):
         # api key handled by environment
@@ -59,12 +58,12 @@ Session summary: {session_summary}
 
 Message: {node_text}
 
-Rate the relevance of this message to the session summary on a scale from 0.0 to 1.0.
+Rates the relevance of this message to the session summary on a scale from 0.0 to 1.0.
 - 1.0 = directly relevant, load-bearing context
 - 0.5 = tangentially related
 - 0.0 = completely irrelevant, noise, or social filler
 
-Respond with ONLY a single float number, nothing else."""
+Responds with ONLY a single float number, nothing else."""
 
         body = json.dumps({
             "model": self.model,
@@ -110,7 +109,7 @@ class ChatGraphEngine:
 
     def _infer_session_summary(self) -> str:
         """
-        Build session anchor: concatenate text of nodes that look like
+        Build session anchor: concatenates text of nodes that look like
         substantive outputs (long assistant-style messages, not noise).
         """
         candidates = [
@@ -123,8 +122,8 @@ class ChatGraphEngine:
     def score_session(self):
         """
         Two-pass scoring:
-          Pass 1 — score each node individually via LLM or noise heuristic
-          Pass 2 — propagate scores bottom-up, stopping at branching nodes
+          Pass 1 — scores each node individually via LLM or noise heuristic
+          Pass 2 — propagates scores bottom-up, stopping at branching nodes
         """
         summary = self._infer_session_summary()
         print(f"  Session anchor: \"{summary[:80]}...\"" if len(summary) > 80 else f"  Session anchor: \"{summary}\"")

@@ -133,7 +133,7 @@ if __name__ == "__main__":
         {"id": "m8", "parent_id": "m3",  "role": "user",      "text": "Does this work on TPUs too?"},
     ]
 
-    embedder = Embedder()        # swap to Embedder() on your machine
+    embedder = Embedder()       # Use MockEmbedder() if you don't have HuggingFace available
     scorer   = SemanticScorer(embedder)
     df       = score_report(messages, scorer)
 
