@@ -1,4 +1,25 @@
 import json
+import re
+
+
+def _looks_like_list_line(line: str) -> bool:
+    """
+    Heuristic for a structured-inventory line (e.g. a resume's
+    "Programming C++, Python, Java, SQL" skills-table row): mostly-short,
+    comma/pipe-delimited segments, no sentence-ending punctuation. Not a
+    general-purpose list detector — a cheap, deliberately narrow heuristic
+    targeting the specific pattern that caused facet extraction to treat
+    individual tool/language names as discussion topics (see FINDINGS.md).
+    """
+    stripped = line.strip()
+    if not stripped or stripped[-1:] in ".?!":
+        return False
+    segments = [s.strip() for s in re.split(r"[,|]", stripped) if s.strip()]
+    if len(segments) < 3:
+        return False
+    short = sum(1 for s in segments if len(s.split()) <= 3)
+    return short / len(segments) >= 0.7
+
 
 class Datahub:
     def __init__(self, path="data/datahub.json"):
@@ -21,10 +42,13 @@ class Datahub:
                     break
         return matched
 
-    def topic_overlap(self, text_a: str, text_b: str) -> float:
-        """Jaccard similarity of matched topics — lexical edge weight."""
-        a = self.match_topics(text_a)
-        b = self.match_topics(text_b)
-        if not a or not b:
-            return 0.0
-        return len(a & b) / len(a | b)
+    def strip_structured_lists(self, text: str) -> str:
+        """
+        Drops lines that look like a structured inventory rather than
+        genuine prose discussion, so e.g. a resume's skills table doesn't
+        get treated as active discussion topics during anchor extraction.
+        Prose (project descriptions, sentences ending in punctuation) is
+        left untouched.
+        """
+        kept = [line for line in text.splitlines() if not _looks_like_list_line(line)]
+        return "\n".join(kept).strip()

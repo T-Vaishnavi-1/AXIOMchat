@@ -23,8 +23,13 @@
   },
   "global_noise": [
     "thank you", "thanks", "got it", "ok", "okay", "sure", "great", "sounds good",
-    "hello", "hi", "hey", "bye", "goodbye", "see you", "i want to learn",
+    "hello", "hi", "hey", "yo", "hiya", "bye", "goodbye", "see you", "see ya",
+    "later", "take care", "cheers", "i want to learn",
     "can you help", "please help", "help me", "i need help", "let's start",
-    "let us start", "i understand", "makes sense", "i see", "alright","thanks, got it!"
+    "let us start", "i understand", "makes sense", "i see", "alright", "thanks, got it!",
+    "cool", "nice", "perfect", "awesome", "no worries", "no problem", "np",
+    "yep", "yeah", "yes", "no", "nope", "will do", "sounds great",
+    "appreciate it", "thanks a lot", "thank you so much", "good morning",
+    "good afternoon", "good evening"
   ]
 }
